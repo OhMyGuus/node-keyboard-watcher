@@ -3,7 +3,7 @@
     {
       "target_name": "keywatcher",
       "sources": [
-        "src/lib/ekeywatcher.cpp", 
+        "src/lib/keywatcher.cpp", 
        "src/lib/keyhandler.cpp",
 
       ],

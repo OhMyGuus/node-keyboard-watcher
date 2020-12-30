@@ -8,7 +8,8 @@
       "type": "git",
       "url": "https://github.com/OhMyGuus/node-keyboard-watcher.git"
     },
-
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
   "private": true,
   "gypfile": true,
   "scripts": {

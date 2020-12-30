@@ -16,7 +16,6 @@ declare interface KeyboardWatcher {
 class KeyboardWatcher extends EventEmitter {
   constructor() {
     super();
-    this.start();
   }
 
   addKeyHook(keyId: number){

@@ -21,6 +21,9 @@ class KeyboardWatcher extends EventEmitter {
   addKeyHook(keyId: number){
     lib.addKeyHook(keyId);
   }
+  clearKeyHooks(){
+    lib.clearKeyHooks();
+  }
 
   start() {
     lib.start(this.emit.bind(this));

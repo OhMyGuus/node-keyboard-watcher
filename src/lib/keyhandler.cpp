@@ -1,7 +1,7 @@
 
 #include "keyhandler.h"
-#include <iostream> 
-#include <map> 
+#include <iostream>
+#include <map>
 #include <uv.h>
 #include "shared.h"
 
@@ -17,10 +17,12 @@ std::map<int, keystate> key_map = {};
 
 void AddKeyHandler(int keyId)
 {
-	key_map.insert(std::pair<char, keystate>(keyId, keystate::Up));
+	if (key_map.count(keyId) == 0)
+		key_map.insert(std::pair<char, keystate>(keyId, keystate::Up));
 }
 
-void ClearKeyHooks(){
+void ClearKeyHooks()
+{
 	key_map.clear();
 }
 
@@ -30,17 +32,17 @@ void RemoveKeyHandler(int keyId)
 
 void OnkeyUp(int keyId)
 {
-	emit_event(new KeyEvent{keyId,"keyup"});
+	emit_event(new KeyEvent{keyId, "keyup"});
 }
 
 void OnKeyDown(int keyId)
 {
-	emit_event(new KeyEvent{keyId,"keydown"});
+	emit_event(new KeyEvent{keyId, "keydown"});
 }
 
 static void keywatcher_thread(void *_arg)
 {
-//	AddKeyHandler(0x4E);
+	//	AddKeyHandler(0x4E);
 	// AddKeyHandler(0x4F);
 
 	while (true)
@@ -62,8 +64,7 @@ static void keywatcher_thread(void *_arg)
 	}
 }
 
- void StartKeyHandler(){
-	  uv_thread_create(&hook_tid, keywatcher_thread, NULL);
-
+void StartKeyHandler()
+{
+	uv_thread_create(&hook_tid, keywatcher_thread, NULL);
 }
-

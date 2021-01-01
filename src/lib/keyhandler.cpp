@@ -48,7 +48,7 @@ static void keywatcher_thread(void *_arg)
 		for (auto const &x : key_map)
 		{
 			auto oldState = x.second;
-			auto currentstate = GetKeyState(x.first) < 0 ? keystate::Down : keystate::Up;
+			auto currentstate = (GetAsyncKeyState(x.first) & 0x800) ? keystate::Down : keystate::Up;
 			if (oldState != currentstate)
 			{
 				if (currentstate == keystate::Up)

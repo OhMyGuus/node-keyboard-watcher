@@ -18,7 +18,7 @@
     "build64": "node-gyp clean configure build --arch=x64",
     "prebuild": "prebuildify --napi",
     "build-ts": "tsc",
-    "demo": "node-gyp build && yarn build-ts && node dist/demo/keywatcher-demo.js"
+    "demo": "node-gyp build && yarn build-ts && node dist/demo/keyboardWatcher-demo.js"
   },
   "files": [
     "dist/index.d.ts",

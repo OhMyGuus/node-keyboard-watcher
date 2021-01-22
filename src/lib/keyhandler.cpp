@@ -5,7 +5,7 @@
 #include <uv.h>
 #include "shared.h"
 
-static boolean IsRunning = false;
+static bool IsRunning = false;
 static uv_thread_t hook_tid;
 
 enum class keystate
@@ -58,9 +58,10 @@ static void keywatcher_thread(void *_arg)
 			}
 			key_map[x.first] = currentstate;
 		}
-		Sleep(60);
+		uv_sleep(60);
 	}
 }
+
 void StartKeyHandler()
 {
 	if (!IsRunning)

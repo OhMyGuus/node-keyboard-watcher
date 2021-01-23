@@ -3,9 +3,9 @@
     {
       "target_name": "keywatcher",
       "sources": [
-        "src/lib/keywatcher.cpp", 
-       "src/lib/keyhandler.cpp",
-
+        "src/lib/keywatcher.cpp",
+        "src/lib/keyhandler.cpp",
+        "src/lib/getkeystate.cpp",
       ],
       'include_dirs': [
         'src/lib'
@@ -27,6 +27,13 @@
             "CLANG_CXX_LIBRARY": "libc++",
             'GCC_ENABLE_CPP_EXCEPTIONS': 'YES',
             'MACOSX_DEPLOYMENT_TARGET': '10.7'
+          }
+        }],
+        ['OS=="linux"', {
+            'link_settings': {
+                'libraries': [
+                    '-lX11'
+                ]
           }
         }]
       ]

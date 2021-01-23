@@ -1,9 +1,13 @@
-
 #include "keyhandler.h"
 #include <iostream>
 #include <map>
 #include <uv.h>
 #include "shared.h"
+
+#ifndef _WIN32
+#include "getkeystate.hpp"
+#define GetAsyncKeyState X11GetKeyState
+#endif
 
 static bool IsRunning = false;
 static uv_thread_t hook_tid;

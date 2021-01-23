@@ -20,6 +20,7 @@ short X11GetKeyState(char keycode) {
       keySym == winKeyCode2Keysym::MouseButton5) {
     // Since BetterCrewLink only uses this for push to talk lets just ignore
     // the mouse scroll wheel. (Assuming that what MouseButton 4 and 5 are)
+    XCloseDisplay(display);
     return 0;
   }
 

@@ -32,6 +32,8 @@ short X11GetKeyState(char keycode) {
   // Check that key's state.
   bool bKeyPressed = !!(keys_return[kc2 >> 3] & (1 << (kc2 & 7)));
 
+  XCloseDisplay(display);
+
   // Return the value as 0x8000
   if (bKeyPressed) {
     return 0x8000;

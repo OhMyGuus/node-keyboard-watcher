@@ -1,5 +1,6 @@
 #include "getkeystate.hpp"
 #include "win2x11keymap.hpp"
+#ifndef _WIN32
 #include <X11/Xlib.h>
 #include <X11/keysym.h>
 #include <cstdio>
@@ -61,3 +62,5 @@ KeySym WinKeyCode2Keysym(char winKeyCode) {
 
   return result.X11sym;
 }
+
+#endif

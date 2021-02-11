@@ -1,5 +1,6 @@
 #ifndef _WIN2X11KEYMAP_H
 #define _WIN2X11KEYMAP_H
+#ifndef _WIN32
 #include <X11/Xlib.h>
 #include <X11/keysym.h>
 
@@ -55,4 +56,5 @@ const struct winKeyCode2Keysym winKeyCode2Keysyms[arraySize] = {
     {.winCode = 0x68, .X11sym = XK_KP_8},
     {.winCode = 0x69, .X11sym = XK_KP_9}};
 } // namespace winKeyCode2Keysym
+#endif
 #endif

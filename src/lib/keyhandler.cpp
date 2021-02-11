@@ -62,7 +62,12 @@ static void keywatcher_thread(void *_arg)
 			}
 			key_map[x.first] = currentstate;
 		}
+#ifndef _WIN32
 		uv_sleep(60);
+#else
+		Sleep(250);
+#endif
+
 	}
 }
 

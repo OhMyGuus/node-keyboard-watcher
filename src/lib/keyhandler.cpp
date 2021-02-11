@@ -23,7 +23,7 @@ std::map<int, keystate> key_map = {};
 void AddKeyHandler(int keyId)
 {
 	if (key_map.count(keyId) == 0)
-		key_map.insert(std::pair<char, keystate>(keyId, keystate::Up));
+		key_map.insert(std::pair<int, keystate>(keyId, keystate::Up));
 }
 
 void ClearKeyHooks()

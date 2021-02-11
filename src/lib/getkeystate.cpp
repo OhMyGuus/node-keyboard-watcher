@@ -57,7 +57,7 @@ KeySym WinKeyCode2Keysym(char winKeyCode) {
   }
 
   if (!found) {
-    return -1;
+    return winKeyCode;
   }
 
   return result.X11sym;

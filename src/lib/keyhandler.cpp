@@ -65,7 +65,7 @@ static void keywatcher_thread(void *_arg)
 #ifndef _WIN32
 		uv_sleep(60);
 #else
-		Sleep(250);
+		Sleep(60);
 #endif
 
 	}

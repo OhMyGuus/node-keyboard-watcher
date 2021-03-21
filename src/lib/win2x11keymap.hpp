@@ -7,10 +7,10 @@
 namespace winKeyCode2Keysym {
 const int MouseButton4 = 0x05;
 const int MouseButton5 = 0x06;
-const size_t arraySize = 40;
+const size_t arraySize = 46;
 
 struct winKeyCode2Keysym {
-  char winCode = 0;
+  int winCode = 0;
   int X11sym = 0;
 };
 
@@ -54,13 +54,13 @@ const struct winKeyCode2Keysym winKeyCode2Keysyms[arraySize] = {
     {.winCode = 0x66, .X11sym = XK_KP_6},
     {.winCode = 0x67, .X11sym = XK_KP_7},
     {.winCode = 0x68, .X11sym = XK_KP_8},
-    {.winCode = 0x69, .X11sym = XK_KP_9}},
+    {.winCode = 0x69, .X11sym = XK_KP_9},
     {.winCode = 0xa0, .X11sym = XK_Shift_L},
     {.winCode = 0xa1, .X11sym = XK_Shift_R},
     {.winCode = 0xa2, .X11sym = XK_Control_L},
     {.winCode = 0xa3, .X11sym = XK_Control_R},
     {.winCode = 0xa4, .X11sym = XK_Alt_L},
-    {.winCode = 0xa5, .X11sym = XK_Alt_R};
+    {.winCode = 0xa5, .X11sym = XK_Alt_R}};
 
 } // namespace winKeyCode2Keysym
 #endif

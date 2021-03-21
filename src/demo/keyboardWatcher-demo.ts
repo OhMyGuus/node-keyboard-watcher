@@ -3,7 +3,7 @@ import { keyboardWatcher } from '..'
 keyboardWatcher.start(); // key B
 
 
-keyboardWatcher.addKeyHook(162)
+keyboardWatcher.addKeyHook(0x38)
 console.log("Started keyboard watcher.. ");
 
 keyboardWatcher.on('keydown', (keyid) => {

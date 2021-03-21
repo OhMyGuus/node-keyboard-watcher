@@ -4,7 +4,7 @@
 #include <X11/keysym.h>
 #include <cstdio>
 
-KeySym WinKeyCode2Keysym(char winKeyCode);
+int WinKeyCode2Keysym(char winKeyCode);
 
 short X11GetKeyState(char keycode) {
   KeySym keySym = WinKeyCode2Keysym(keycode);
@@ -43,21 +43,13 @@ short X11GetKeyState(char keycode) {
   }
 }
 
-KeySym WinKeyCode2Keysym(char winKeyCode) {
-  bool found = false;
+int WinKeyCode2Keysym(char winKeyCode) {
   struct winKeyCode2Keysym::winKeyCode2Keysym result;
 
   for (size_t i = 0; i < winKeyCode2Keysym::arraySize; i++) {
     if (winKeyCode2Keysym::winKeyCode2Keysyms[i].winCode == winKeyCode) {
-      found = true;
-      result = winKeyCode2Keysym::winKeyCode2Keysyms[i];
-      break;
+      return (int) winKeyCode2Keysym::winKeyCode2Keysyms[i].X11sym;
     }
   }
-
-  if (!found) {
-    return -1;
-  }
-
-  return result.X11sym;
+    return (int) winKeyCode;
 }

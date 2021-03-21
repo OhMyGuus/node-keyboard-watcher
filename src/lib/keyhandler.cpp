@@ -1,11 +1,15 @@
-
 #include "keyhandler.h"
 #include <iostream>
 #include <map>
 #include <uv.h>
 #include "shared.h"
 
-static boolean IsRunning = false;
+#ifndef _WIN32
+#include "getkeystate.hpp"
+#define GetAsyncKeyState X11GetKeyState
+#endif
+
+static bool IsRunning = false;
 static uv_thread_t hook_tid;
 
 enum class keystate
@@ -58,9 +62,15 @@ static void keywatcher_thread(void *_arg)
 			}
 			key_map[x.first] = currentstate;
 		}
+#ifndef _WIN32
+		uv_sleep(60);
+#else
 		Sleep(60);
+#endif
+
 	}
 }
+
 void StartKeyHandler()
 {
 	if (!IsRunning)

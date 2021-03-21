@@ -3,7 +3,7 @@
 
 struct KeyEvent {
   int keyId;
-  char* stringType;
+  const char* stringType;
 };
 
 void emit_event(KeyEvent* e);

@@ -13,12 +13,12 @@
   "private": true,
   "gypfile": true,
   "scripts": {
-    "install": "node-gyp rebuild && yarn build-ts",
-    "build32": "node-gyp clean configure build --arch=ia32",
-    "build64": "node-gyp clean configure build --arch=x64",
+    "install": "node-gyp rebuild --openssl_fips='' && yarn build-ts",
+    "build32": "node-gyp clean configure build --arch=ia32 --openssl_fips=''",
+    "build64": "node-gyp clean configure build --arch=x64 --openssl_fips=''",
     "prebuild": "prebuildify --napi",
     "build-ts": "tsc",
-    "demo": "node-gyp build && yarn build-ts && node dist/demo/keyboardWatcher-demo.js"
+    "demo": "node-gyp build --openssl_fips='' && yarn build-ts && node dist/demo/keyboardWatcher-demo.js"
   },
   "files": [
     "dist/index.d.ts",
